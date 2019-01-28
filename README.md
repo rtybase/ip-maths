@@ -25,7 +25,7 @@ For IPv6
 ```
 
 #### 3. Convert and IP to a subnet.
-This is useful for "hiding" client IP addresses, like ENDS Ckient Subnet [(ECS)](https://developers.google.com/speed/public-dns/docs/ecs).
+This is useful for "hiding" client IP addresses, like EDNS Client Subnet [(ECS)](https://developers.google.com/speed/public-dns/docs/ecs).
 For IPv4 and IPv6
 
 ```java
