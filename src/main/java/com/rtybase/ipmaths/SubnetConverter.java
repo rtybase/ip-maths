@@ -49,11 +49,11 @@ public class SubnetConverter {
 	}
 
 	private static InetAddress trimBits(byte[] bytes, int bitsToTrim) throws UnknownHostException {
-		int s = bitsToTrim;
-		for (int i = bytes.length - 1; (s > 0) && (i >= 0); i--, s -= 8) {
-			if (s < 8) {
-				bytes[i] >>= s;
-				bytes[i] <<= s;
+		int bitPosition = bitsToTrim;
+		for (int i = bytes.length - 1; (bitPosition > 0) && (i >= 0); i--, bitPosition -= 8) {
+			if (bitPosition < 8) {
+				bytes[i] >>= bitPosition;
+				bytes[i] <<= bitPosition;
 			} else {
 				bytes[i] = 0;
 			}

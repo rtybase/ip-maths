@@ -37,7 +37,8 @@ public class SubnetConverterTest {
 		"16, 255.255.255.255, 255.255.0.0/16",
 		"16, 255.0.0.0, 255.0.0.0/16",
 		"32, 255.255.255.255, 255.255.255.255/32",
-		"0, 255.255.255.255, 0.0.0.0/0"
+		"0, 255.255.255.255, 0.0.0.0/0",
+		"1, 255.255.255.255, 128.0.0.0/1"
 	})
 	public void testIPv4SubnetConversion(int ipv4PrefixBits, String ip, String expectedResult) throws Exception {
 		SubnetConverter converter = new SubnetConverter(ipv4PrefixBits, NOT_USED);
