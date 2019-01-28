@@ -12,6 +12,8 @@ import com.google.common.net.InetAddresses;
 //for more details
 public class SubnetConverter {
 
+	private static final int BITS_IN_BYTE = 8;
+
 	private final int ipv4PrefixBits;
 	private final int ipv6PrefixBits;
 
@@ -50,8 +52,8 @@ public class SubnetConverter {
 
 	private static InetAddress trimBits(byte[] bytes, int bitsToTrim) throws UnknownHostException {
 		int bitPosition = bitsToTrim;
-		for (int i = bytes.length - 1; (bitPosition > 0) && (i >= 0); i--, bitPosition -= 8) {
-			if (bitPosition < 8) {
+		for (int i = bytes.length - 1; (bitPosition > 0) && (i >= 0); i--, bitPosition -= BITS_IN_BYTE) {
+			if (bitPosition < BITS_IN_BYTE) {
 				bytes[i] >>= bitPosition;
 				bytes[i] <<= bitPosition;
 			} else {
