@@ -30,7 +30,12 @@ public class SubnetConverter {
 	public SubnetDetails toCidrNotation(String ip) throws UnknownHostException {
 		Objects.requireNonNull(ip, "ip must not be null!");
 
-		InetAddress address = InetAddresses.forString(ip);
+		return toCidrNotation(InetAddresses.forString(ip));
+	}
+
+	public SubnetDetails toCidrNotation(InetAddress address) throws UnknownHostException {
+		Objects.requireNonNull(address, "address must not be null!");
+
 		if (address instanceof Inet4Address) {
 			return computeSubnetDetails(address, ipv4PrefixBits, SubnetUtils.IP_V4_BIT_SIZE);
 		} else {

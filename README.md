@@ -24,7 +24,7 @@ For IPv6
     assertTrue(validator.isInSubnet("2607:f818:200:201:616c:4b4e:f19e:cee5"));
 ```
 
-#### 3. Convert and IP to a subnet.
+#### 3. Convert an IP to a subnet.
 This is useful for "hiding" client IP addresses, like EDNS Client Subnet [(ECS)](https://developers.google.com/speed/public-dns/docs/ecs).
 For IPv4 and IPv6
 

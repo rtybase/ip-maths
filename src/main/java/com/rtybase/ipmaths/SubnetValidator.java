@@ -1,5 +1,6 @@
 package com.rtybase.ipmaths;
 
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class SubnetValidator {
@@ -13,6 +14,11 @@ public class SubnetValidator {
 
 	public boolean isInSubnet(String ip) throws UnknownHostException {
 		SubnetDetails ipSubnet = converter.toCidrNotation(ip);
+		return subnet.equals(ipSubnet);
+	}
+
+	public boolean isInSubnet(InetAddress address) throws UnknownHostException {
+		SubnetDetails ipSubnet = converter.toCidrNotation(address);
 		return subnet.equals(ipSubnet);
 	}
 }

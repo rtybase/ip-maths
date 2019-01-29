@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.google.common.net.InetAddresses;
 import com.rtybase.ipmaths.SubnetConverter;
 
 import junitparams.JUnitParamsRunner;
@@ -43,6 +44,8 @@ public class SubnetConverterTest {
 	public void testIPv4SubnetConversion(int ipv4PrefixBits, String ip, String expectedResult) throws Exception {
 		SubnetConverter converter = new SubnetConverter(ipv4PrefixBits, NOT_USED);
 		assertEquals(converter.toCidrNotation(ip).toString(), expectedResult);
+		assertEquals(converter.toCidrNotation(InetAddresses.forString(ip))
+				.toString(), expectedResult);
 	}
 
 	@Test
@@ -66,5 +69,7 @@ public class SubnetConverterTest {
 	public void testIPv6SubnetConversion(int ipv6PrefixBits, String ip, String expectedResult) throws Exception {
 		SubnetConverter converter = new SubnetConverter(NOT_USED, ipv6PrefixBits);
 		assertEquals(converter.toCidrNotation(ip).toString(), expectedResult);
+		assertEquals(converter.toCidrNotation(InetAddresses.forString(ip))
+				.toString(), expectedResult);
 	}
 }

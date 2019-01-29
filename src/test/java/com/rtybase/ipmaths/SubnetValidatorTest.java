@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.google.common.net.InetAddresses;
 import com.rtybase.ipmaths.SubnetValidator;
 
 import junitparams.JUnitParamsRunner;
@@ -51,6 +52,7 @@ public class SubnetValidatorTest {
 	public void testIPSubnetMatching(String ipPrefix, int ipPrefixBits, String ip) throws Exception {
 		SubnetValidator validator = new SubnetValidator(ipPrefix, ipPrefixBits);
 		assertTrue(validator.isInSubnet(ip));
+		assertTrue(validator.isInSubnet(InetAddresses.forString(ip)));
 	}
 
 	@Test
@@ -69,5 +71,6 @@ public class SubnetValidatorTest {
 	public void testIPSubnetNotMatching(String ipPrefix, int ipPrefixBits, String ip) throws Exception {
 		SubnetValidator validator = new SubnetValidator(ipPrefix, ipPrefixBits);
 		assertFalse(validator.isInSubnet(ip));
+		assertFalse(validator.isInSubnet(InetAddresses.forString(ip)));
 	}
 }
